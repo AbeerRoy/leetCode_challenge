@@ -12,6 +12,8 @@ func main() {
 	fmt.Println(removeDuplicates(nums))
 
 }
+
+// only remove values/elements that repeated more than twice
 func removeDuplicates(nums []int) []int {
 	sort.Ints(nums)
 
@@ -29,23 +31,24 @@ func removeDuplicates(nums []int) []int {
 			if i < len(nums)-1 {
 				//counter 2
 				j := i + 1
-				fmt.Println(j)
+				//fmt.Println(j)
 				if nums[i] == nums[j] {
-					fmt.Println(nums[j])
+					//fmt.Println(nums[j])
+					//for minimum reapeating value of 2
 					for k := 0; k < 2; k++ {
 						nums[l] = nums[value]
-						fmt.Println(nums[l])
+						//fmt.Println(nums[l])
 						l++
 					}
 				} else {
 					nums[l] = nums[value]
-					fmt.Println(nums[l])
+					//fmt.Println(nums[l])
 					l++
 				}
 			}
 			if i == len(nums)-1 {
 				nums[l] = nums[value]
-				fmt.Println(nums[l])
+				//fmt.Println(nums[l])
 				l++
 			}
 		}
