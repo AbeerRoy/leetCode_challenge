@@ -17,10 +17,10 @@ func main() {
 	//haystack := "aaaabbbababb"
 	//needle := "baa"
 
-	fmt.Println(strStr(haystack, needle))
+	fmt.Println(Hold(haystack, needle))
 
 }
-func strStr(haystack string, needle string) int {
+func Hold(haystack string, needle string) int {
 	//stores length of needle
 	l1 := len(needle)
 	//sets an index counter for needle
@@ -42,6 +42,7 @@ func strStr(haystack string, needle string) int {
 			//copies the value of index of haystack to find the next value of needle[l] which didn't match in Best Case
 			var k = i
 			for k = i; k < len(haystack); k++ {
+
 				/***********  Here first value of needle and the last value of the needle is crosschecked with haystack string before exiting the nested loop   ***********/
 				// setting all values inbetween as bool absolute could ensure ULTIMATE final Check before exiting the loop
 				c := haystack[k-l : k+1]
@@ -51,9 +52,8 @@ func strStr(haystack string, needle string) int {
 				if haystack[k-l:k+1] == needle {
 					return k - l
 
-					/***********  Here first value of needle and the last value of the needle is crosschecked with haystack string before exiting the nested loop   ***********/
-
-				} else if haystack[k] == needle[l] && haystack[k-l] == needle[0] {
+				}
+				if haystack[k] == needle[l] && haystack[k-l] == needle[0] {
 					//reseting the value of i(original index of haystack)
 					i = k - l - 1
 					//reseting the value of l for first loop
